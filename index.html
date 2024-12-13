@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student AI Chat App</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+  <!-- Splash Screen -->
+  <div id="splash-screen" class="center">
+    <h1>AI Learning Companion</h1>
+    <p>Your AI-Powered Learning Assistant</p>
+  </div>
+
+  <!-- Login Screen -->
+  <div id="login-screen" class="hidden center">
+    <div class="login-container">
+      <h2>Welcome Back!</h2>
+      <input type="email" placeholder="Enter your email" id="email">
+      <input type="password" placeholder="Enter your password" id="password">
+      <button onclick="login()">Login</button>
+      <p>New here? <a href="#">Sign up</a></p>
+    </div>
+  </div>
+
+  <!-- Home Page -->
+  <div id="home-page" class="hidden">
+    <header>
+      <h2>Good Morning, Student!</h2>
+    </header>
+    <section id="search-section">
+      <div class="search-bar">
+        <input
+          type="text"
+          id="search-course"
+          placeholder="Search for courses (e.g., HTML, Java)"
+          oninput="searchCourse()"
+        />
+        <button onclick="activateAI()">
+          <i class="fas fa-microphone"></i>
+        </button>
+      </div>
+    </section>
+    <section id="course-results" class="hidden">
+      <h3>Search Results:</h3>
+      <div id="course-container"></div>
+    </section>
+    <section id="contacts">
+      <h3>Your Contacts</h3>
+      <div class="contact" onclick="openChat('John Doe')">
+        <img src="user1.jpg" alt="John Doe" class="contact-img">
+        <div class="contact-info">
+          <p>John Doe</p>
+          <small>Last seen: 10 mins ago</small>
+        </div>
+      </div>
+      <div class="contact" onclick="openChat('Jane Smith')">
+        <img src="user2.jpg" alt="Jane Smith" class="contact-img">
+        <div class="contact-info">
+          <p>Jane Smith</p>
+          <small>Online</small>
+        </div>
+      </div>
+      <div class="contact" onclick="openChat('AI Tutor')">
+        <img src="ai.jpg" alt="AI Tutor" class="contact-img">
+        <div class="contact-info">
+          <p>AI Tutor</p>
+          <small>Available</small>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- Chat Screen -->
+  <div id="chat-screen" class="hidden">
+    <header>
+      <button onclick="closeChat()">
+        <i class="fas fa-arrow-left"></i>
+      </button>
+      <h2 id="chat-header">Chat</h2>
+    </header>
+    <section id="chat-box">
+      <div class="received">Hello! How can I help you?</div>
+    </section>
+    <footer>
+      <input type="text" placeholder="Type a message" id="chat-input">
+      <button onclick="sendMessage()">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
